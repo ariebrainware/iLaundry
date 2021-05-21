@@ -15,12 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('paket-laundry', 'Paket_controller@index');
-Route::get('paket-laudry/add', 'Paket_controller@add');
-Route::post('paket-laudry/add', 'Paket_controller@store');
-Route::get('paket-laundry/{id}', 'Paket_controller@edit');
-Route::put('paket-laundry/{id}', 'Paket_controller@update');
-Route::delete('paket-laundry/{id}', 'Paket_controller@delete');
+Route::get('paket-laundry', 'PaketController@index');
+Route::get('paket-laudry/add', 'PaketController@add');
+Route::post('paket-laudry/add', 'PaketController@store');
+Route::get('paket-laundry/{id}', 'PaketController@edit');
+Route::put('paket-laundry/{id}', 'PaketController@update');
+Route::delete('paket-laundry/{id}', 'PaketController@delete');
 
 Auth::routes();
 
