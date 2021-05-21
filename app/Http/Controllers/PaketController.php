@@ -77,14 +77,16 @@ class PaketController extends Controller
 
     public function delete(Request $request)
     {
+
         $delete = Paket::findOrFail($request->data);
+
         $delete->delete();
 
         if ($delete) {
-            alert()->success('Sukses', 'Data Paket Berhasil Dihapus');
+            alert()->success('Berhasil', 'Data Telah dihapus');
             return redirect('paket-laundry');
         } else {
-            alert()->error('Gagal', 'Data paket gagal dihapus');
+            alert()->error('Gagal', 'Data Belum dihapus');
             return redirect('paket-laundry');
         }
     }
