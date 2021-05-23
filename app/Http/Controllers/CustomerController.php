@@ -52,4 +52,47 @@ class CustomerController extends Controller
 
         return redirect('customer');
     }
+
+    public function edit($id)
+    {
+        $dt = Customer::find($id);
+        $title = "Edit Customer $dt->nama";
+
+        return view('customer.edit', compact('title', 'dt'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $data['email'] = $request->email;
+        $data['nama'] = $request->nama;
+        $data['no_hp'] = $request->no_hp;
+        $data['alamat'] = $request->alamat;
+        $data['updated_at'] = date('Y-m-d H:i:s');
+
+        $update = Customer::where('id', $id)->update($data);
+
+        if ($update) {
+            alert()->success('Berhasil', 'Data Berhasil Diedit');
+            return redirect('customer');
+        } else {
+            alert()->error('Gagal', 'Data Gagal Diedit');
+            return redirect('customer');
+        }
+    }
+
+    public function delete(Request $request)
+    {
+
+        $delete = Customer::findOrFail($request->data);
+
+        $delete->delete();
+
+        if ($delete) {
+            alert()->success('Berhasil', 'Data Telah dihapus');
+            return redirect('customer');
+        } else {
+            alert()->error('Gagal', 'Data Belum dihapus');
+            return redirect('customer');
+        }
+    }
 }

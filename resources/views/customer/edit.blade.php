@@ -29,15 +29,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputText">Nama Customer</label>
-                                <input type="text" name="name" class="form-control" id="exampleInputText" placeholder="Nama" value="{{$dt->nama}}">
+                                <input type="text" name="nama" class="form-control" id="exampleInputText" placeholder="Nama" value="{{$dt->nama}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputText">No HP</label>
-                                <input type="number" name="name" class="form-control" id="exampleInputText" placeholder="No HP" value="{{$dt->no_hp}}">
+                                <input type="number" name="no_hp" class="form-control" id="exampleInputText" placeholder="No HP" value="{{$dt->no_hp}}">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputText">Alamat</label>
-                                <input type="number" name="name" class="form-control" id="exampleInputText" placeholder="Alamat" value="{{$dt->alamat}}">
+                                <input type="text" name="alamat" class="form-control" id="exampleInputText" placeholder="Alamat" value="{{$dt->alamat}}">
                             </div>
 
                             <button type="submit" class="btn btn-primary">Submit</button>

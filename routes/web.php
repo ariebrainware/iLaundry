@@ -25,6 +25,9 @@ Route::delete('paket-laundry/{id}', 'PaketController@delete');
 Route::get('customer', 'CustomerController@index');
 Route::get('customer/add', 'CustomerController@add');
 Route::post('customer/add', 'CustomerController@store');
+Route::get('customer/{id}', 'CustomerController@edit');
+Route::put('customer/{id}', 'CustomerController@update');
+Route::delete('customer/{id}', 'CustomerController@delete');
 
 Auth::routes();
 
