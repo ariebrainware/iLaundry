@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,6 +36,7 @@
     <link rel="stylesheet" href="https://github.com/twbs/bootstrap-sass.git">
     @yield('css')
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -66,6 +68,9 @@
                         @endif
                         @else
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/customer') }}">Customer</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('/paket-laundry') }}">Paket laundry</a>
                         </li>
 
@@ -95,25 +100,26 @@
             @yield('content')
         </main>
     </div>
-    
+
     <script src="{{ asset('js/app.js') }}"></script>
     <script>
-        $('#delete').on('show.bs.modal', function (event) {
+        $('#delete').on('show.bs.modal', function(event) {
             var button = $(event.relatedTarget)
             var data_id = button.data('dataid')
             var modal = $(this)
 
             modal.find('.modal-body #data_id').val(data_id)
-            })
+        })
     </script>
 
-        <script src="{{ asset('js/jquery.min.js ')}}"></script>
-        <script type="text/javascript" charset="utf8" src="{{ asset('js/jquery.dataTables.js') }}"></script>
-            <script>
-                $(document).ready(function(){
-                $('#myTable').DataTable();
-                });
-            </script>
+    <script src="{{ asset('js/jquery.min.js ')}}"></script>
+    <script type="text/javascript" charset="utf8" src="{{ asset('js/jquery.dataTables.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#myTable').DataTable();
+        });
+    </script>
     @include('sweetalert::alert')
 </body>
+
 </html>
