@@ -11,7 +11,7 @@
 
         <div class="card-body">
 
-          <a href="{{url('paket-laudry/add')}}" class="btn btn-danger">Tambah Data</a>
+          <a href="{{url('paket-laudry/add')}}" class="btn btn-info">Tambah Data</a>
           <hr>
 
           <table class="table table-hover" id="myTable">
@@ -38,7 +38,7 @@
                   <!-- Button trigger modal -->
                   <div>
                     <a class="btn btn-success btn-sm" href="{{ url('paket-laundry/'.$dt->id) }}">Edit</a>
-                    <button type="button" class="btn btn-primary btn-sm" data-dataid="{{$dt->id}}" data-toggle="modal" data-target="#delete">
+                    <button type="button" class="btn btn-danger btn-sm" data-dataid="{{$dt->id}}" data-toggle="modal" data-target="#delete">
                       Delete
                     </button>
                   </div>
