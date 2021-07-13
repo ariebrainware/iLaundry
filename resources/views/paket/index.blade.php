@@ -43,9 +43,36 @@
                     </button>
                   </div>
               </tr>
+
+              <!-- Modal -->
+              <div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+
+                    <form action="{{ url('paket-laundry/'.$dt->id) }}" method="post">
+                      @csrf
+                      {{method_field('delete')}}
+                      <div class="modal-body">
+                        <p>Apakah anda yakin ingin menghapus data ini?</p>
+                        <input type="hidden" name="data" id="data_id" value="{{$dt->id}}">
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
+                        <button type="submit" class="btn btn-primary">Ok, Hapus Data</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+
               @endforeach
             </tbody>
-
           </table>
 
           @if (session('status'))
@@ -55,34 +82,6 @@
           @endif
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-
-<!-- Modal -->
-<div class="modal fade" id="delete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-
-      <form action="{{ url('paket-laundry/'.$dt->id) }}" method="post">
-        @csrf
-        {{method_field('delete')}}
-        <div class="modal-body">
-          <p>Apakah anda yakin ingin menghapus data ini?</p>
-          <input type="hidden" name="data" id="data_id" value="{{$dt->id}}">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-          <button type="submit" class="btn btn-primary">Ok, Hapus Data</button>
-        </div>
-      </form>
     </div>
   </div>
 </div>
